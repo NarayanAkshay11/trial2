@@ -1,28 +1,36 @@
+// Toggle the sidebar menu on mobile
 function toggleMenu() {
     var sidebar = document.getElementById("sidebar");
-    if (sidebar.style.left === "0px") {
-        sidebar.style.left = "-250px";
+    if (sidebar.style.display === "block") {
+        sidebar.style.display = "none";
     } else {
-        sidebar.style.left = "0px";
+        sidebar.style.display = "block";
     }
 }
 
+// Close the sidebar menu
 function closeMenu() {
-    document.getElementById("sidebar").style.left = "-250px";
+    document.getElementById("sidebar").style.display = "none";
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    var counters = document.querySelectorAll('.counter');
+// Counter animation
+document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter-number');
     counters.forEach(counter => {
-        let target = +counter.getAttribute('data-target');
-        let count = 0;
-        let interval = setInterval(() => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+
+            const increment = target / 200;
+
             if (count < target) {
-                count++;
-                counter.textContent = count;
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 10);
             } else {
-                clearInterval(interval);
+                counter.innerText = target;
             }
-        }, 50);
+        };
+
+        updateCount();
     });
 });
