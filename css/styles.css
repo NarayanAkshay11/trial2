@@ -1,13 +1,20 @@
-/* Common Styles */
-body {
+/* Reset some default styles */
+body, h1, h2, h3, h4, p, ul, li {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
 }
 
 header {
-    background-color: #333;
+    background-color: #003c8f;
     color: #fff;
-    padding: 10px 0;
+    padding: 15px 0;
     position: relative;
 }
 
@@ -21,13 +28,11 @@ header {
 }
 
 .logo img {
-    height: 50px;
+    height: 60px;
 }
 
 .navbar ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
 }
 
@@ -38,6 +43,7 @@ header {
 .navbar a {
     color: #fff;
     text-decoration: none;
+    font-size: 16px;
 }
 
 .menu-icon {
@@ -46,146 +52,172 @@ header {
     cursor: pointer;
 }
 
-.video-background video {
-    width: 100%;
-    height: auto;
-    position: absolute;
+#sidebar {
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
+    width: 250px;
+    height: 100%;
+    background-color: #003c8f;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+#sidebar a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+}
+
+#sidebar .closebtn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+main {
+    padding: 20px;
 }
 
 .counters {
     display: flex;
     justify-content: space-around;
-    padding: 20px;
-    background-color: #f4f4f4;
+    margin-bottom: 40px;
 }
 
 .counter {
-    font-size: 24px;
     text-align: center;
-    width: 100px;
+    flex: 1;
+    padding: 20px;
+    background: #003c8f;
+    color: #fff;
+    border-radius: 8px;
+    margin: 0 10px;
+}
+
+.counter-number {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.counter-label {
+    font-size: 18px;
+    margin-top: 10px;
 }
 
 .team-section {
-    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .team-band {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .team-band h2 {
-    background-color: #eee;
-    padding: 10px;
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
 .cards {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .card {
-    background-color: #ddd;
-    padding: 20px;
-    margin: 10px;
-    flex: 1 1 calc(25% - 20px);
-    box-sizing: border-box;
-    border-radius: 5px;
-    text-align: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(33% - 20px); /* Adjust to fit in row */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.card-content h4 {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    color: #333;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.social-icon.linkedin {
+    color: #0077b5;
+}
+
+.social-icon.github {
+    color: #333;
+}
+
+.social-icon.instagram {
+    color: #e4405f;
 }
 
 footer {
-    background-color: #333;
+    background-color: #003c8f;
     color: #fff;
     padding: 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .footer-left {
-    flex: 1;
-}
-
-.footer-right {
-    flex: 1;
-    text-align: right;
+    text-align: left;
 }
 
 .footer-right img {
-    height: 50px;
+    height: 80px; /* Adjust size as needed */
 }
 
 .footer-bottom {
+    margin-top: 20px;
     text-align: center;
-    padding-top: 10px;
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        display: none;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
-    #sidebar {
-        display: block;
-    }
-
-    #sidebar a {
-        display: block;
-        padding: 15px;
-        text-decoration: none;
-        color: #fff;
-    }
-
-    #sidebar .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-}
-
-#sidebar {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: -250px;
-    background-color: #333;
-    color: #fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-#sidebar a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #fff;
-    display: block;
-    transition: 0.3s;
-}
-
-#sidebar a:hover {
-    color: #f1f1f1;
-}
-
-#sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
 }
